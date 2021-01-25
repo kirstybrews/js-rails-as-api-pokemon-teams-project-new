@@ -62,10 +62,12 @@ function renderPokemon(pokemon, ul) {
 }
 
 function deletePokemon(pokemon, li) {
-    console.log(pokemon, li)
     fetch(POKEMONS_URL + `/${pokemon.id}`, {method: "DELETE"})
         .then(res => res.json())
-        .then(li.remove())
+        .then(res => {
+            console.log(res)
+            li.remove()
+        })
 }
 
 function addPokemon(trainer, ul) {
